@@ -7,20 +7,20 @@ if not getgenv().SavedColor then
   getgenv().SavedColor = Color3.fromRGB(44, 111, 199)
 end
 
-if not isfolder('LunarFE') then
-  makefolder('LunarFE')
+if not isfolder('LunarFEStorage') then
+  makefolder('LunarFEStorage')
 end
 
-if not isfolder("LunarFE" .. "/Settings") then
-  makefolder("LunarFE" .. "/Settings")
+if not isfolder("LunarFEStorage" .. "/Settings") then
+  makefolder("LunarFEStorage" .. "/Settings")
 end
 
-if not isfile("LunarFE" .. "/Settings" .. "/Settings.txt") then
+if not isfile("LunarFEStorage" .. "/Settings" .. "/Settings.txt") then
   local content = {}
-  writefile("LunarFE" .. "/Settings" .. "/Settings.txt", tostring(game:GetService("HttpService"):JSONEncode(content)))
+  writefile("LunarFEStorage" .. "/Settings" .. "/Settings.txt", tostring(game:GetService("HttpService"):JSONEncode(content)))
 end
 
-local Settings = game:GetService("HttpService"):JSONDecode(readfile("LunarFE" .. "/Settings" .. "/Settings.txt"))
+local Settings = game:GetService("HttpService"):JSONDecode(readfile("LunarFEStorage" .. "/Settings" .. "/Settings.txt"))
 
 for i,v in pairs(Settings) do
   if i == "UIKeybind" then
@@ -327,7 +327,7 @@ function Main:Tab(Text0,Image0,Callback)
     function Main:ChangeKeyBind(KeyBind)
       getgenv().KeyBind = KeyBind
       local content = {UIKeybind = tostring(KeyBind), Hello = true}
-      writefile("LunarFE" .. "/Settings" .. "/Settings.txt", tostring(game:GetService("HttpService"):JSONEncode(content)))
+      writefile("LunarFEStorage" .. "/Settings" .. "/Settings.txt", tostring(game:GetService("HttpService"):JSONEncode(content)))
     end
 
     function ItemHold:BindButton()
