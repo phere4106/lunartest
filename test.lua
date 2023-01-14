@@ -24,10 +24,9 @@ local Settings = game:GetService("HttpService"):JSONDecode(readfile("LunarFE" ..
 
 for i,v in pairs(Settings) do
   if i == "UIKeybind" then
-    local ColorSplit = string.split(v,",")
-    getgenv().SavedColor = Color3.fromRGB(ColorSplit[1]*255,ColorSplit[2]*255,ColorSplit[3]*255)
+    getgenv().KeyBind = v
   else
-    getgenv().SavedColor = getgenv().DefaultColor
+    getgenv().KeyBind = "c"
   end
 end
 
