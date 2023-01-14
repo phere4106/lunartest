@@ -23,7 +23,7 @@ end
 local Settings = game:GetService("HttpService"):JSONDecode(readfile("LunarFEStorage" .. "/Settings" .. "/Settings.txt"))
 
 for i,v in pairs(Settings) do
-  if i == "UIKeybind" then
+  if i == 1 then
     getgenv().KeyBind = v
   else
     getgenv().KeyBind = "c"
